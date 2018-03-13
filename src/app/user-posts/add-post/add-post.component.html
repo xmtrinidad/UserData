@@ -1,0 +1,21 @@
+<div class="Add-post">
+  <div *ngIf="!wantsAddPost" class="Add-post__btn center">
+    <button class="btn" (click)="onAddPostClick()" type="button">Add Post</button>
+  </div>
+
+  <div *ngIf="wantsAddPost" class="row">
+    <form (submit)="onAddPostSubmit()" class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Post Title" [(ngModel)]="postTitle" name="post_title" id="post_title" type="text" required>
+        </div>
+        <div class="input-field col s12">
+          <input placeholder="Post Body" [(ngModel)]="postBody" name="post_body" id="post_body" type="text" required>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+      <button (click)="wantsAddPost = false" class="btn-flat waves-effect waves-light" type="submit" name="action">Cancel</button>
+    </form>
+  </div>
+
+</div>

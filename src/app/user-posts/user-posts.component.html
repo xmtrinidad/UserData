@@ -1,0 +1,30 @@
+<h2 *ngIf="username" class="center">Showing posts from {{username}}</h2>
+<app-add-post (addedPost)="onPostAdded($event)"></app-add-post>
+<div *ngIf="posts" class="row Posts">
+  <div style="margin: 15px">
+    <button (click)="onSortByTitleClick()" type="button" class="btn">Sort by Title</button>
+  </div>
+  <!-- User Post -->
+  <div *ngFor="let post of posts; let i = index" class="col s12 Post">
+    <div class="card">
+
+      <!-- Edit Post Card -->
+      <div *ngIf="i === editPostIndex" class="card-content">
+        <app-edit-post [post]="post" (updateSubmitted)="onUpdatedPostEvent($event)"></app-edit-post>
+      </div>
+      <!-- /Edit Post Card -->
+
+      <ng-container *ngIf="i !== editPostIndex">
+        <div class="card-content">
+          <span class="card-title">{{post.title}}</span>
+          <p>{{post.body}}.</p>
+        </div>
+        <div class="card-action">
+          <a routerLink="./" (click)="onEditPostClick(i)">Edit</a>
+          <a routerLink="./" (click)="onDeleteClick(post)">Delete</a>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <!-- /User Post -->
+</div>

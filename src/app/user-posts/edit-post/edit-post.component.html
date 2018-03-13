@@ -1,0 +1,10 @@
+<form (submit)="onEditPostSubmit(updatedTitle, updatedBody)">
+  <div class="input-field">
+    <input #updatedTitle [value]="post.title" id="post_title" type="text">
+  </div>
+  <div class="input-field">
+    <textarea style="height: 100%" #updatedBody [value]="post.body" id="post_body" type="text" class="materialize-textarea"></textarea>
+  </div>
+  <button class="btn" type="submit">Submit</button>
+  <button (click)="onCancelEdit()" class="btn-flat" type="submit">Cancel</button>
+</form>
