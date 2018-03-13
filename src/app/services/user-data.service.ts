@@ -10,15 +10,15 @@ export class UserDataService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get('http://jsonplaceholder.typicode.com/users');
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 
   getUserPosts(id) {
-    return this.http.get(`http://jsonplaceholder.typicode.com/posts?userId=${id}`);
+    return this.http.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
   }
 
   addUserPost(userPost: UserPost) {
-    return this.http.post<UserPost>('http://jsonplaceholder.typicode.com/posts', userPost);
+    return this.http.post<UserPost>('https://jsonplaceholder.typicode.com/posts', userPost);
   }
 
   deleteUserPost(postId: number) {
